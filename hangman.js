@@ -19,6 +19,21 @@ function newGame() {
 function guessLetter() {
     var input = document.getElementById("guess");
     var letter = input.value;
+    if (word === "") {
+        alert("Click 'New Game' to start");
+        input.value = "";
+        return;
+    }
+    if (gameOver) {
+        alert("Game over. Click 'New Game' to start again");
+        input.value = "";
+        return;
+    }
+    if (guesses.indexOf(letter) >= 0) {
+        alert("You've guessed '" + letter +"' already. Try a new letter.");
+        input.value =  "";
+        return;
+    }
     if (word.indexOf(letter) < 0 ) {
         guess_count--;
     }
