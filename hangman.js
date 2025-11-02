@@ -12,6 +12,8 @@ function newGame() {
     word = POSSIBLE_WORDS[randomIndex];
     guesses = ""
     guess_count = MAX_GUESSES;
+    gameOver = false;
+    document.getElementById("guesses").innerHTML = "";
     updatePage();
 }
 function guessLetter() {
