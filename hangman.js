@@ -62,4 +62,19 @@ function updatePage() {
     //update the image
     var image = document.getElementById("hangmanImage");
     image.src =  "images/hangman" + guess_count + ".gif";
+
+    if (guess_count <= 0) {
+        alert("You have lost. The word was: " + word);
+        var guessArea = document.getElementById("guesses");
+        guessArea.innerHTML = "You have lost. The word was:  " + word;
+        gameOver =  true;
+        return;
+    }
+    if (!clueString.includes("_")) {
+        alert("You have won. The word was: " + word);
+        var guessArea = document.getElementById("guesses");
+        guessArea.innerHTML =  "You have won. The word was: " + word;
+        gameOver = true;
+        return;
+    }
 }
